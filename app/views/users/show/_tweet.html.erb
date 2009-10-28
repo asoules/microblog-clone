@@ -1,0 +1,9 @@
+<div class="tweet">
+  <div class="body">
+    <%= link_to tweet.author.username, tweet.author %>
+    <%= tweet.body %>
+  </div>
+  <div class="when">
+    <%= time_ago_in_words tweet.created_at %> ago
+  </div>
+</div>
