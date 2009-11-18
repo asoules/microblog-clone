@@ -3,6 +3,7 @@ class SubscriptionsController < ApplicationController
   # POST /subscriptions
   def create
     @subscription = Subscription.new(params[:subscription])
+    @subscription.follower = @current_user
 
     respond_to do |format|
       if @subscription.save
@@ -10,7 +11,7 @@ class SubscriptionsController < ApplicationController
         format.html { redirect_to(:back) }
       else
         flash[:error] = "You failed to follow #{@subscription.following.name}"
-        format.html { redirect_to(@user) }
+        format.html { redirect_to(:back) }
       end
     end
   end

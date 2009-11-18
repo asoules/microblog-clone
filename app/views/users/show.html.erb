@@ -16,3 +16,28 @@
 <div class="tweets">
   <%= render :partial => 'users/show/tweet', :collection => @user.tweets %>
 </div>
+
+<% form_for @subscription do |f| %>
+
+  <%= f.hidden_field :following_id, :value => @user.id %>
+  <%= f.submit 'Follow' %>
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,4 +2,14 @@
 
 <%= render :partial => 'new_tweet' %>
 
+<ul>
+<% for following in @current_user.following %>
+  
+  <li>
+	<%= link_to following.name, following %>
+  </li>
+
+<% end %>
+</ul>
+
 <%= render :partial => 'tweet', :collection => @tweets %>

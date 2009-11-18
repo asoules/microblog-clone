@@ -11,3 +11,11 @@ User.create! do |u|
   u.name     = 'Pizza Man'
   u.bio      = 'I tweet while delivering pizza!'
 end
+
+200.times do |i|
+  User.create! do |u|
+    u.username = "username" + i.to_s
+    u.name     = "Name " + i.to_s
+    u.bio      = "This is a very awesome bio, yes."
+  end
+end
