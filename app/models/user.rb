@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     :through => :outgoing_subscriptions
 
   has_many :incoming_tweets, :class_name => 'Tweet',
-    :finder_sql => 'SELECT * FROM tweets WHERE tweets.author_id IN ("#{following_ids.join(",")}")',
+    :finder_sql => 'SELECT * FROM tweets #{following_ids.empty? ? "" : "WHERE tweets.author_id IN (" + following_ids.join(",") + ")"}',
     :order => 'created_at DESC'
 
   # attributes: username, name, bio
